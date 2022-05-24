@@ -1,10 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home, Search, Detail } from "./Pages";
 import Nav from "./Components/Nav";
+import { GlobalStyle } from "./globalStyled";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Nav style={{ zindex: 5 }} />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Navbar = styled.nav`
   background: #ffffff;
   margin: 0 auto;
-  height: 110px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,6 @@ export const NavLinks = styled.div`
 
   @media screen and (max-width: 480px) {
     text-align: center;
-    padding: 3rem;
     display: table;
     &:hover {
       color: #4b89dc;
