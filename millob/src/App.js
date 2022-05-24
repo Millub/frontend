@@ -1,11 +1,16 @@
-import React from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home, Search, Detail } from "./Pages";
 
 const App = () => {
   return (
-    <div>
-      시작
-    </div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/detail" element={<Detail />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
