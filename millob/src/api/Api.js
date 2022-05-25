@@ -6,13 +6,14 @@ const PROXY_URL = window.location.hostname === 'localhost' ? '' : '/proxy';
 
 
 //메인 api 0
-export const mainApi = (setData) => {
+export const mainApi = (setData, id, loc, name, store) => {
     const url = `${PROXY_URL}/function/store`;
   
     const data = {
-      loginId: id,
-      password: pw,
-      email: email,
+        last_idx: id,
+        loc_keyword: loc,
+        name_keyword: name,
+        store_type: store,
     };
   
     const options = {
@@ -28,11 +29,11 @@ export const mainApi = (setData) => {
         console.log('connect');
         console.log(r.data);
         setData(r.data);
-        setLoading(true);
       },
       (error) => {
         console.log(error.response.data);
         console.log(data);
+        console.log(typeof(id))
       }
     );
   };

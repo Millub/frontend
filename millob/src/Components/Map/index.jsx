@@ -4,18 +4,19 @@ const Map = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.innerHTML = `
-    
-    vw.ol3.MapOptions = {
-        basemapType: vw.ol3.BasemapType.GRAPHIC
-      , controlDensity: vw.ol3.DensityType.EMPTY
-      , interactionDensity: vw.ol3.DensityType.BASIC
-      , controlsAutoArrange: true
-      , homePosition: vw.ol3.CameraPosition
-      , initPosition: vw.ol3.CameraPosition
-     };
-       
-    vmap = new vw.ol3.Map("vmap",  vw.ol3.MapOptions);
-       
+    vw.MapOptions = {
+        container : "vmap",
+        mapMode : "2d-map",
+        basemapType : vw.ol3.BasemapType.GRAPHIC,
+        controlDensity : vw.ol3.DensityType.EMPTY,
+        interactionDensity : vw.ol3.DensityType.BASIC,
+        controlsAutoArrange : true,
+        homePosition : vw.ol3.CameraPosition,
+        initPosition : vw.ol3.CameraPosition,
+       };
+        
+       mapController = new vw.MapController(vw.MapOptions);
+     
    `;
     script.type = "text/javascript";
     script.async = "async";
@@ -24,7 +25,7 @@ const Map = () => {
 
   return (
     <>
-      <div id="vmap" style={{width:'50%;', height:'370px;'}}></div>
+      <div id="vmap" style={{width:'100%', height:'170px', left:'0px', top:'0px'}}></div>
     </>
   );
 };
