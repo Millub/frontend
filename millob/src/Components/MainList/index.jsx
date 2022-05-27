@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as Styled from "./styled";
 import { mainApi } from "../../api/Api";
 import Loader from "../Loader";
+import { useNavigate } from "react-router-dom";
 
 const MainList = () => {
   const [id, setId] = useState(0);
@@ -9,6 +10,7 @@ const MainList = () => {
   const [name, setName] = useState("");
   const [store, setStore] = useState([1]);
   const [db, setData] = useState([]);
+
 
   const [target, setTarget] = useState(null);
   const [page, setPage] = useState(1);
@@ -78,8 +80,14 @@ const MainList = () => {
 };
 
 export const Subject = (props) => {
+  let navigate = useNavigate();
+
   return (
-    <Styled.LectureWrapper>
+    <Styled.LectureWrapper onClick={() => navigate(`/detail`, {
+        state: {
+          id: props.id,
+        },
+      })}>
       <Styled.MarginTop>
         <Styled.TitleWrapper>
           <Styled.Title>{props.name}</Styled.Title>

@@ -22,7 +22,8 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   function (response) {
-    return response.data;
+      console.log(response.data.data)
+    return response.data.data;
   },
   async (error) => {
    

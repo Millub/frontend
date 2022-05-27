@@ -37,3 +37,10 @@ export const mainApi = (setData, page, loc, name, store) => {
       }
     );
   };
+
+  export const detailApi = async (id) => {
+    return instance({
+      url: `/function/store/detail?store_idx=${id}`,
+      method: 'GET',
+    });
+  };
