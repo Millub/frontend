@@ -44,3 +44,10 @@ export const mainApi = (setData, page, loc, name, store) => {
       method: 'GET',
     });
   };
+
+  export const listApi = async (id) => {
+    return instance({
+      url: `/function/store/detail/list?store_idx=${id}`,
+      method: 'GET',
+    });
+  };
