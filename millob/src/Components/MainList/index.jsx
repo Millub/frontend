@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as Styled from "./styled";
 import { mainApi } from "../../api/Api";
+import Loader from "../Loader";
 
 const MainList = () => {
   const [id, setId] = useState(0);
@@ -32,7 +33,7 @@ const MainList = () => {
   const onIntersect = async (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setPage((prev) => prev + 1);
+        setPage((prev) => prev + 20);
 
         // 현재 타겟을 unobserve한다.
         observer.unobserve(entry.target);
@@ -68,6 +69,9 @@ const MainList = () => {
             />
           );
         })}
+        <div ref={setTarget} className="Target-Element">
+        {isLoaded && <Loader />}
+      </div>
       </Styled.FullWrapSub>
     </Styled.FlexWrap>
   );

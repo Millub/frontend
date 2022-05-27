@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Button />
-      <div>
+      <div style={{marginTop: '10px'}}>
       <MainList />
 
       </div>
