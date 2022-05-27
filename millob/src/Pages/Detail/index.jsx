@@ -8,18 +8,16 @@ const Detail = () => {
   const { id } = location.state;
 
   const [db, setData] = useState({});
-  const [list, setList] = useState([])
+  const [list, setList] = useState([]);
   const onClick = () => {
     window.location = `https://map.naver.com/v5/search/${db.store_address}`;
   };
 
-
-
-
   useEffect(() => {
     detailApi(id).then((data) => setData(data));
-    listApi(id).then((data) => setList(data));
+    listApi(setList, 24);
   }, []);
+
   return (
     <div>
       <Styled.Naver onClick={onClick}>네이버 검색</Styled.Naver>
@@ -37,11 +35,29 @@ const Detail = () => {
             <Styled.Title>주소</Styled.Title>
             <Styled.OptionPoint>{db.store_address}</Styled.OptionPoint>
           </Styled.TitleFlex>
-
         </Styled.Content>
       </Styled.Wrapper>
 
-      <Styled.Naver onClick={() => document.location.href=`tel:${db.store_number}`}>전화걸기</Styled.Naver>
+      {list.map((i) => (
+        <Styled.Wrapper>
+          <Styled.Content>
+            <Styled.TitleFlex>
+              <Styled.Title>상품명</Styled.Title>
+              <Styled.OptionPoint>{i.detail_name}</Styled.OptionPoint>
+            </Styled.TitleFlex>
+            <Styled.TitleFlex>
+              <Styled.Title>가격</Styled.Title>
+              <Styled.OptionPoint>{i.detail_price}</Styled.OptionPoint>
+            </Styled.TitleFlex>
+          </Styled.Content>
+        </Styled.Wrapper>
+      ))}
+
+      <Styled.Naver
+        onClick={() => (document.location.href = `tel:${db.store_number}`)}
+      >
+        전화걸기
+      </Styled.Naver>
     </div>
   );
 };

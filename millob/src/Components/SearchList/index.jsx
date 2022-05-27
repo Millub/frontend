@@ -1,6 +1,6 @@
 import React from "react";
 import * as Styled from "./styled";
-
+import {useNavigate} from 'react-router-dom'
 const SearchList = ({props}) => {
 
     console.log(props)
@@ -24,8 +24,14 @@ const SearchList = ({props}) => {
 };
 
 export const Subject = (props) => {
+  let navigate = useNavigate();
+
   return (
-    <Styled.LectureWrapper>
+    <Styled.LectureWrapper onClick={() => navigate(`/detail`, {
+      state: {
+        id: props.id,
+      },
+    })}>
       <Styled.MarginTop>
         <Styled.TitleWrapper>
           <Styled.Title>{props.name}</Styled.Title>

@@ -45,9 +45,32 @@ export const mainApi = (setData, page, loc, name, store) => {
     });
   };
 
-  export const listApi = async (id) => {
-    return instance({
-      url: `/function/store/detail/list?store_idx=${id}`,
+  // export const listApi = async (id) => {
+  //   return instance({
+  //     url: `/function/store/detail/list?store_idx=${id}`,
+  //     method: 'GET',
+  //   });
+  // };
+
+  export const listApi = async (setList, id) => {
+    const url = `${PROXY_URL}/function/store/detail/list?store_idx=${id}`;
+
+  
+    const options = {
       method: 'GET',
-    });
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      url,
+    };
+    axios(options).then(
+      (r) => {
+        console.log('connect');
+        console.log(r.data.data.detail_list);
+        setList(r.data.data.detail_list);
+      },
+      (error) => {
+        console.log(error.response.data);
+      }
+    );
   };
