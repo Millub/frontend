@@ -5,14 +5,11 @@ import { mainApi } from "../../api/Api";
 import MainList from "../../Components/MainList";
 
 const Home = () => {
- 
   return (
+      
     <div>
-      <Button />
-      <div style={{marginTop: '10px'}}>
+        <Button />
       <MainList />
-
-      </div>
     </div>
   );
 };

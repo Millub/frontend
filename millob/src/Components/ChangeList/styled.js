@@ -138,7 +138,6 @@ export const FullWrapSub = styled.div`
 `;
 
 
-
 export const Wrapper = styled.div`
   margin: 0 auto;
   display: flex;
@@ -148,7 +147,7 @@ export const Wrapper = styled.div`
 `;
 
 
-export const Button = styled.input`
+export const Button = styled.button`
   margin: 0;
   border: none;
   cursor: pointer;
@@ -175,3 +174,4 @@ export const Button = styled.input`
     background: var(--button-bg-color, #025ce2);
   }
 `;
+

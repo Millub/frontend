@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
-import Button from "../../Components/Button";
+import { useLocation } from "react-router";
 import * as Styled from "./styled";
 import { mainApi } from "../../api/Api";
-import SearchList from "../../Components/SearchList";
+import ChangeList from "../../Components/ChangeList";
 
-const Search = () => {
+const Change = () => {
+  const location = useLocation();
+  const { type } = location.state;
+
   const [id, setId] = useState(0);
   const [loc, setLoc] = useState("");
   const [name, setName] = useState("");
-  const [store, setStore] = useState([1]);
+  const [store, setStore] = useState([type]);
   const [db, setData] = useState([]);
   const [page, setPage] = useState(1);
+  console.log(type);
 
   const onClick = (e) => {
     if (e.target.checked == true) {
@@ -26,24 +30,9 @@ const Search = () => {
     mainApi(setData, page, loc, name, store);
   };
 
-  const locChange = (e) => {
-    setLoc(e.target.value);
-  };
-
-  const nameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const locKeypress = (e) => {
-    if (e.key === "Enter") {
-      mainApi(setData, page, loc, name, store);
-    }
-  };
-  const nameKeypress = (e) => {
-    if (e.key === "Enter") {
-        mainApi(setData, page, loc, name, store);
-    }
-  };
+  useEffect(() => {
+    mainApi(setData, page, loc, name, store);
+  }, []);
 
   return (
     <>
@@ -83,29 +72,9 @@ const Search = () => {
           <Styled.StyledP>미용업</Styled.StyledP>
         </Styled.StyledLabel>
       </Styled.Wrapper>
-
-      <Styled.Container>
-        <Styled.SearchWrapper>
-          <Styled.SearchInput
-            placeholder="주소를 검색하세요"
-            onChange={locChange}
-            onKeyPress={locKeypress}
-          />
-          <Styled.SearchInput
-            onChange={nameChange}
-            onKeyPress={nameKeypress}
-            placeholder="상호를 검색하세요"
-          />
-        </Styled.SearchWrapper>
-        <>
-       
-       {
-           db != null  ? <SearchList props={db} /> : ''
-       }
-       </>
-      </Styled.Container>
+      <>{db != null ? <ChangeList props={db} /> : ""}</>
     </>
   );
 };
 
-export default Search;
+export default Change;

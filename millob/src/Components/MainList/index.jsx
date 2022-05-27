@@ -3,13 +3,14 @@ import * as Styled from "./styled";
 import { mainApi } from "../../api/Api";
 import Loader from "../Loader";
 import { useNavigate } from "react-router-dom";
-
 const MainList = () => {
   const [id, setId] = useState(0);
   const [loc, setLoc] = useState("");
   const [name, setName] = useState("");
   const [store, setStore] = useState([1]);
   const [db, setData] = useState([]);
+ 
+
 
 
   const [target, setTarget] = useState(null);
@@ -30,6 +31,7 @@ const MainList = () => {
   useEffect(() => {
     console.log("page ? ", page);
     getMoreItem();
+
   }, [page]);
 
   const onIntersect = async (entries, observer) => {
@@ -58,7 +60,9 @@ const MainList = () => {
   }, [itemLists]);
 
   return (
-    <Styled.FlexWrap>
+  <>
+
+    <Styled.FlexWrap style={{marginTop: '10px'}}>
       <Styled.FullWrapSub>
         {itemLists.map((row, i) => {
           return (
@@ -76,6 +80,7 @@ const MainList = () => {
       </div>
       </Styled.FullWrapSub>
     </Styled.FlexWrap>
+    </>
   );
 };
 

@@ -1,38 +1,16 @@
 import React, { useState } from "react";
 import * as Styled from "./styled";
-
+import { useNavigate } from "react-router-dom";
 const Button = () => {
-  const [type, setType] = useState(false);
-  let num = [];
+
+    let navigate = useNavigate();
 
   const onClick = (e) => {
 
-    if(type == true){
-        console.log('dd')
-
-        for (let i = 0; i < num.length; i++) {
-            if (num[i] == e.target.value) {
-              num.splice(i, 1);
-              setType(false)
-                console.log(num);
-
-            }
-          }
-         
-    }
-    else if(type != true){
-        num.push(e.target.value)
-        setType(true)
-        console.log('ee')
-        console.log(num);
-
-    }else{
-        console.log('뭐야')
-    }
-  
-
-
-    
+    navigate('/change', {
+        state: {
+          type: e.target.value,
+        }})
 
 
   };
