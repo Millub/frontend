@@ -23,13 +23,19 @@ export const Navbar = styled.nav`
   }
 `;
 
-export const NavLogo = styled.h1`
-  color: #000000;
+export const NavLogo = styled.img`
+  color: #346cfd;
   display: flex;
   font-size: 2rem;
   font-weight: bold;
   &:hover {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: var(--font-medium);
+    font-weight: var(--weight-semi-bold);
+   
   }
 `;
 

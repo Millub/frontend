@@ -7,9 +7,7 @@ const Nav = () => {
 
   return (
     <Styled.Navbar>
-      <Styled.NavLogo onClick={() => navigate("/")}>
-        밀럽
-      </Styled.NavLogo>
+      <Styled.NavLogo src="img/logo.png" width={110} onClick={() => navigate("/")} />
 
       <Styled.NavMenu>
         <Styled.NavLinks onClick={() => navigate("/search")}>
