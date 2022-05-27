@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../Components/Button";
-import Map from "../../Components/Map";
-import { mainApi } from "../../api/Api";
 import MainList from "../../Components/MainList";
+import KakaoMap from "../../Components/KakaoMap";
 
 const Home = () => {
   return (
       
     <div>
         <Button />
+      
+        <KakaoMap />
       <MainList />
     </div>
   );

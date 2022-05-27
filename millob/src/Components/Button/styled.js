@@ -14,7 +14,6 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   font-family: "Noto Sans KR", sans-serif;
-  font-size: var(--button-font-size, 1rem);
   padding: var(--button-padding, 12px 16px);
   border-radius: var(--button-radius, 8px);
   color: var(--button-color, #000000);
