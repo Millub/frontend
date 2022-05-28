@@ -3,6 +3,7 @@ import * as Styled from "./styled";
 import { mainApi } from "../../api/Api";
 import Loader from "../Loader";
 import { useNavigate } from "react-router-dom";
+import KakaoMap from "../KakaoMap";
 const MainList = () => {
   const [id, setId] = useState(0);
   const [loc, setLoc] = useState("");
@@ -61,6 +62,7 @@ const MainList = () => {
 
   return (
   <>
+        <KakaoMap db={itemLists}/>
 
     <Styled.FlexWrap style={{marginTop: '10px'}}>
       <Styled.FullWrapSub>

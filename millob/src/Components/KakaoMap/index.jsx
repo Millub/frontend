@@ -1,25 +1,59 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 const { kakao } = window;
-const KakaoMap = () => {
-  useEffect(() => {
-    const container = document.getElementById("myMap");
-    const options = {
-      center: new kakao.maps.LatLng(33.450701, 126.570667),
-      level: 3,
-    };
-    const map = new kakao.maps.Map(container, options);
-  }, []);
+let marker = [];
+const KakaoMap = (db) => {
+
+  console.log(db.db.length)
+  const [map, setMap] = useState();
+
+  var geocoder = new kakao.maps.services.Geocoder();
+  for (let i = 0; i < db.db.length; i++) {
+    geocoder.addressSearch(db.db[i].store_address, function (result, status) {
+      if (status === kakao.maps.services.Status.OK) {
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        var city = [];
+        city.push(db.db[i].store_name);
+        
+        let marker = new kakao.maps.Marker({
+          map: map,
+          position: coords,
+          clickable: true,
+        });
+
+        kakao.maps.event.addListener(marker, "click", function () {
+          // 마커 위에 인포윈도우를 표시합니다
+          //markerClick(db[i].sidoNm);
+        });
+
+        var infowindow = new kakao.maps.InfoWindow({
+          content: `<div style="width:150px;text-align:center;padding:6px 0;" >${
+            city 
+          }</div>`,
+        });
+        infowindow.open(map, marker);
+      }
+    });
+  }
 
   return (
-    <div
-      id="myMap"
-      style={{
-        width: "100vw",
-        height: "40vh",
-      }}
-    ></div>
+    <Map // 지도를 표시할 Container
+    center={{
+      // 지도의 중심좌표
+      lat: 35.58,
+      lng: 128.56,
+    }}
+    style={{
+      // 지도의 크기
+      width: "100%",
+      height: "300px",
+    }}
+    level={8} // 지도의 확대 레벨
+    onCreate={setMap}
+  ></Map>
   );
 };
+
 
 export default KakaoMap;
 
