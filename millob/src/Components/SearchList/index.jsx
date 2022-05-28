@@ -1,10 +1,13 @@
 import React from "react";
 import * as Styled from "./styled";
 import {useNavigate} from 'react-router-dom'
+import KakaoMap from "../KakaoMap";
 const SearchList = ({props}) => {
 
     console.log(props)
   return (
+    <>
+     <KakaoMap db={props}/>
     <Styled.FlexWrap>
       <Styled.FullWrapSub>
         {props ? props.map((row, i) => {
@@ -20,6 +23,7 @@ const SearchList = ({props}) => {
         }) : ''}
       </Styled.FullWrapSub>
     </Styled.FlexWrap>
+    </>
   );
 };
 
