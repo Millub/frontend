@@ -22,7 +22,7 @@ const Detail = () => {
 
   useEffect(() => {
     detailApi(id).then((data) => setData(data));
-    listApi(setList, 24);
+    listApi(setList, id);
   }, []);
 
 
