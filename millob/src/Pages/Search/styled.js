@@ -214,5 +214,5 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
   background: #d9d9d9;
-  padding : 8px;
+  padding : 4px;
 `;

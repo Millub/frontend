@@ -18,6 +18,7 @@ const SearchList = ({props}) => {
               name={row.store_name}
               number={row.store_number}
               address={row.store_address}
+              db={row.props}
             />
           );
         }) : ''}
@@ -33,7 +34,7 @@ export const Subject = (props) => {
   return (
     <Styled.LectureWrapper onClick={() => navigate(`/detail`, {
       state: {
-        id: props.id,
+        id: props.id
       },
     })}>
       <Styled.MarginTop>

@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import * as Styled from "./styled";
 import { mainApi } from "../../api/Api";
 import ChangeList from "../../Components/ChangeList";
+import KakaoMap from "../../Components/KakaoMap";
 
 const Change = () => {
   const location = useLocation();
@@ -72,6 +73,8 @@ const Change = () => {
           <Styled.StyledP>미용업</Styled.StyledP>
         </Styled.StyledLabel>
       </Styled.Wrapper>
+    <KakaoMap db={db} />
+
       <>{db != null ? <ChangeList props={db} /> : ""}</>
     </>
   );

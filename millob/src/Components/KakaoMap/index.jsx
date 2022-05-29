@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { useNavigate } from "react-router-dom";
 const { kakao } = window;
-let marker = [];
 const KakaoMap = (db) => {
 
-  console.log(db.db.length)
+console.log(db)
+  let navigate = useNavigate();
+  const markerClick = (id) => {
+    navigate(`/detail`, {
+      state: {
+        id: id,
+      },
+    })
+  };
+
+  console.log(db.db)
   const [map, setMap] = useState();
 
   var geocoder = new kakao.maps.services.Geocoder();
@@ -14,6 +24,9 @@ const KakaoMap = (db) => {
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
         var city = [];
         city.push(db.db[i].store_name);
+
+        const bounds = new kakao.maps.LatLngBounds()
+
         
         let marker = new kakao.maps.Marker({
           map: map,
@@ -21,10 +34,16 @@ const KakaoMap = (db) => {
           clickable: true,
         });
 
+
+        bounds.extend(new kakao.maps.LatLng(result[0].y, result[0].x))
+
+        map.setBounds(bounds)
         kakao.maps.event.addListener(marker, "click", function () {
           // 마커 위에 인포윈도우를 표시합니다
-          //markerClick(db[i].sidoNm);
+          markerClick(db.db[i].store_idx);
         });
+
+        
 
         var infowindow = new kakao.maps.InfoWindow({
           content: `<div style="width:150px;text-align:center;padding:6px 0;" >${
@@ -32,6 +51,7 @@ const KakaoMap = (db) => {
           }</div>`,
         });
         infowindow.open(map, marker);
+        
       }
     });
   }
@@ -48,7 +68,7 @@ const KakaoMap = (db) => {
       width: "100%",
       height: "300px",
     }}
-    level={8} // 지도의 확대 레벨
+    level={2} // 지도의 확대 레벨
     onCreate={setMap}
   ></Map>
   );
