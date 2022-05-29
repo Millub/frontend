@@ -5,6 +5,7 @@ import instance from './ApiController';
 const PROXY_URL = window.location.hostname === 'localhost' ? '' : '/proxy';
 
 
+
 //메인 api 0
 export const mainApi = (setData, page, loc, name, store) => {
     const url = `${PROXY_URL}/function/store`;
