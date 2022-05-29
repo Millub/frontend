@@ -33,9 +33,11 @@ console.log(db)
           position: coords,
           clickable: true,
         });
+//중심좌표 영천시청
 
+//내 위치 
 
-        bounds.extend(new kakao.maps.LatLng(result[0].y, result[0].x))
+        bounds.extend(coords)
 
         map.setBounds(bounds)
         kakao.maps.event.addListener(marker, "click", function () {

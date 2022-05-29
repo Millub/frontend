@@ -12,8 +12,9 @@ const Detail = () => {
   const [list, setList] = useState([]);
 
   const [hide, setHide] = useState(false);
+
     const onClick = () => {
-    window.location = `https://map.naver.com/v5/search/${String(db.store_address).slice(0,9) + db.store_name}`;
+    window.location = `https://m.map.naver.com/search2/search.naver?query=${String(db.store_address).slice(0,9) + db.store_name}`;
   };
 
   const onHide = () => {
