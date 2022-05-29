@@ -10,9 +10,15 @@ const Detail = () => {
 
   const [db, setData] = useState({});
   const [list, setList] = useState([]);
-  const onClick = () => {
+
+  const [hide, setHide] = useState(false);
+    const onClick = () => {
     window.location = `https://map.naver.com/v5/search/${String(db.store_address).slice(0,9) + db.store_name}`;
   };
+
+  const onHide = () => {
+    setHide(!hide)
+  }
 
   useEffect(() => {
     detailApi(id).then((data) => setData(data));
@@ -22,10 +28,10 @@ const Detail = () => {
 
 
   return (
-    <div>
+    <Styled.Container>
       <KakaoMap db={[db]} />
       
-      <Styled.Naver onClick={onClick}>네이버 검색</Styled.Naver>
+      <Styled.Button onClick={onClick} background="#83dcb7">네이버 검색</Styled.Button>
       <Styled.Wrapper>
         <Styled.Content>
           <Styled.TitleFlex>
@@ -43,7 +49,9 @@ const Detail = () => {
         </Styled.Content>
       </Styled.Wrapper>
 
-      {list.map((i) => (
+  <Styled.Button onClick={onHide} background="#346cfd">상품종류   {list.length}개</Styled.Button>
+
+      {hide ?list.map((i) => (
         <Styled.Wrapper key={i.detail_idx}>
           <Styled.Content>
             <Styled.TitleFlex>
@@ -56,14 +64,15 @@ const Detail = () => {
             </Styled.TitleFlex>
           </Styled.Content>
         </Styled.Wrapper>
-      ))}
+      )) : ''}
 
-      <Styled.Naver
+      <Styled.Button
+      background="#50bcdf"
         onClick={() => (document.location.href = `tel:${db.store_number}`)}
       >
         전화걸기
-      </Styled.Naver>
-    </div>
+      </Styled.Button>
+    </Styled.Container>
   );
 };
 

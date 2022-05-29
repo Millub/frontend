@@ -36,7 +36,7 @@ const Change = () => {
   }, []);
 
   return (
-    <>
+    <Styled.Container>
       <Styled.Wrapper>
         <Styled.StyledInput type="checkbox" onClick={onClick} id={1} name={1} />
         <Styled.StyledLabel htmlFor={1}>
@@ -76,7 +76,7 @@ const Change = () => {
     <KakaoMap db={db} />
 
       <>{db != null ? <ChangeList props={db} /> : ""}</>
-    </>
+    </Styled.Container>
   );
 };
 

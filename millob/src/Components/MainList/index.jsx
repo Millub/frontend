@@ -11,8 +11,6 @@ const MainList = () => {
   const [store, setStore] = useState([1]);
   const [db, setData] = useState([]);
  
-  const [show, setShow] = useState(false)
-
 
 
   const [target, setTarget] = useState(null);
@@ -40,6 +38,7 @@ const MainList = () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setPage((prev) => prev + 20);
+        
 
         // 현재 타겟을 unobserve한다.
         observer.unobserve(entry.target);
@@ -61,9 +60,13 @@ const MainList = () => {
     return () => observer && observer.disconnect();
   }, [itemLists]);
 
+
   return (
   <>
-        <KakaoMap db={itemLists}/>
+  <KakaoMap db={itemLists}/>
+ 
+ 
+
     <Styled.FlexWrap style={{marginTop: '10px'}}>
       <Styled.FullWrapSub>
         {itemLists.map((row, i) => {
@@ -83,7 +86,6 @@ const MainList = () => {
       </Styled.FullWrapSub>
     </Styled.FlexWrap>
    
-}
 </> 
   );
 };

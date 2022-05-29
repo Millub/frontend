@@ -6,7 +6,7 @@ const Nav = () => {
   let navigate = useNavigate();
 
   return (
-    <Styled.Navbar>
+    <Styled.Navbar >
       <Styled.NavLogo src="img/logo.png" width={110} onClick={() => navigate("/")} />
 
       <Styled.NavMenu>

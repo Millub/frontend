@@ -1,11 +1,12 @@
 import React from "react";
 import * as Styled from "./styled";
+import { useNavigate } from 'react-router-dom'
 
 const ChangeList = ({props}) => {
 
     console.log(props)
   return (
-    <Styled.FlexWrap>
+    <Styled.FlexWrap style={{marginTop: '10px'}}>
       <Styled.FullWrapSub>
         {props ? props.map((row, i) => {
           return (
@@ -24,8 +25,14 @@ const ChangeList = ({props}) => {
 };
 
 export const Subject = (props) => {
+
+  let navigate = useNavigate();
   return (
-    <Styled.LectureWrapper>
+    <Styled.LectureWrapper onClick={() => navigate(`/detail`, {
+      state: {
+        id: props.id
+      },
+    })}>
       <Styled.MarginTop>
         <Styled.TitleWrapper>
           <Styled.Title>{props.name}</Styled.Title>

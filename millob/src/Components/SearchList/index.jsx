@@ -8,7 +8,7 @@ const SearchList = ({props}) => {
   return (
     <>
      <KakaoMap db={props}/>
-    <Styled.FlexWrap>
+    <Styled.FlexWrap style={{marginTop: '10px'}}>
       <Styled.FullWrapSub>
         {props ? props.map((row, i) => {
           return (

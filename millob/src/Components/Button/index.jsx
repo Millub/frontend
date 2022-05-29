@@ -16,8 +16,8 @@ const Button = () => {
   };
 
   return (
-    <>
-      <Styled.Wrapper>
+    <div >
+      <Styled.Wrapper >
         <Styled.Button onClick={onClick} value={1}>
           일반음식점
         </Styled.Button>
@@ -45,7 +45,7 @@ const Button = () => {
           미용업
         </Styled.Button>
       </Styled.Wrapper>
-    </>
+      </div>
   );
 };
 

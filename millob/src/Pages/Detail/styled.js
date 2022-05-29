@@ -30,7 +30,6 @@ export const Wrapper = styled.div`
   }
 `;
 export const Container = styled.div`
-  display: flex;
   align-items: center;
   width: 60%;
   margin: 0 auto;
@@ -41,7 +40,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   border-radius: 10px;
   border: 1px solid rgb(224, 224, 224);
-  padding: 1rem 1.8rem;
+  padding: 1rem 1rem;
   margin: 10px 0;
 
   &#top {
@@ -51,7 +50,7 @@ export const Content = styled.div`
 `;
 export const Title = styled.div`
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   margin-bottom: 3rem;
 `;
 
@@ -86,7 +85,7 @@ export const OptionPoint = styled.div`
   display: flex;
   font-weight: bold;
   justify-content: flex-end;
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin-left: auto;
   color: #346cfd;
   &#minus {

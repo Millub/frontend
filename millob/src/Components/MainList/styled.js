@@ -137,6 +137,23 @@ export const FullWrapSub = styled.div`
   }
 `;
 
+export const FixedBox = styled.div`
+  position: fixed;
+  z-index: 1;
+  padding: 10px;
+  background: lightseagreen;
+  border-radius: 6px;
+  color: #fff;
+  border: 1px solid rgb(23, 122, 117);
+  text-align: left;
+
+  &#fixed {
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+  }
+  `
+
 
 
 export const Wrapper = styled.div`

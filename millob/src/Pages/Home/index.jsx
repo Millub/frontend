@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Button from "../../Components/Button";
 import MainList from "../../Components/MainList";
+import * as Styled from './styled'
 
 const Home = () => {
+
   return (
     <div>
       <Button />
-
-      <MainList />
+      <Styled.Container>
+     <MainList />
+     </Styled.Container>
     </div>
   );
 };
