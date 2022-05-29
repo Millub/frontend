@@ -2,7 +2,7 @@ import axios from 'axios';
 import instance from './ApiController';
 
 
-const PROXY_URL = window.location.hostname === 'localhost' ? '' : '/proxy';
+const PROXY_URL = '';
 
 
 
@@ -41,7 +41,7 @@ export const mainApi = (setData, page, loc, name, store) => {
 
   export const detailApi = async (id) => {
     return instance({
-      url: `/function/store/detail?store_idx=${id}`,
+      url: `${PROXY_URL}/function/store/detail?store_idx=${id}`,
       method: 'GET',
     });
   };

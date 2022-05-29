@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const PROXY_URL = window.location.hostname === 'localhost' ? '' : '/proxy';
+const PROXY_URL = '';
 
 const instance = axios.create({
   baseURL: `${PROXY_URL}`,

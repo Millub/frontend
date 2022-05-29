@@ -19,7 +19,6 @@ const Detail = () => {
     listApi(setList, 24);
   }, []);
 
-  console.log(String(db.store_address).slice(0,8) + db.store_name)
 
 
   return (

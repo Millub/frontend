@@ -11,6 +11,7 @@ const MainList = () => {
   const [store, setStore] = useState([1]);
   const [db, setData] = useState([]);
  
+  const [show, setShow] = useState(false)
 
 
 
@@ -63,7 +64,6 @@ const MainList = () => {
   return (
   <>
         <KakaoMap db={itemLists}/>
-
     <Styled.FlexWrap style={{marginTop: '10px'}}>
       <Styled.FullWrapSub>
         {itemLists.map((row, i) => {
@@ -82,7 +82,9 @@ const MainList = () => {
       </div>
       </Styled.FullWrapSub>
     </Styled.FlexWrap>
-    </>
+   
+}
+</> 
   );
 };
 
@@ -90,6 +92,7 @@ export const Subject = (props) => {
   let navigate = useNavigate();
 
   return (
+    
     <Styled.LectureWrapper onClick={() => navigate(`/detail`, {
         state: {
           id: props.id,

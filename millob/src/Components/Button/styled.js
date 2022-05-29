@@ -4,20 +4,19 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
-  background: #d9d9d9;
+  background: #ffffff;
   padding : 8px;
 `;
 
 
 export const Button = styled.button`
-  margin: 0;
-  border: none;
-  cursor: pointer;
-  font-family: "Noto Sans KR", sans-serif;
-  padding: var(--button-padding, 12px 16px);
-  border-radius: var(--button-radius, 8px);
-  color: var(--button-color, #000000);
-  background: var(--button-bg-color, #ffffff);
+color: white;
+background: #4B89DC;
+padding: 0.375rem 0.75rem;
+border: 1px solid #B1CCF0;
+border-radius: 0.25rem;
+font-size: 1rem;
+line-height: 1.5;
 
   --button-font-size: 1rem;
     --button-padding: 12px 16px;
