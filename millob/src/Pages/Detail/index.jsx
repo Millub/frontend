@@ -10,15 +10,16 @@ const Detail = () => {
 
   const [db, setData] = useState({});
   const [list, setList] = useState([]);
-
   const onClick = () => {
-    window.location = `https://map.naver.com/v5/search/${db.store_address}`;
+    window.location = `https://map.naver.com/v5/search/${String(db.store_address).slice(0,9) + db.store_name}`;
   };
 
   useEffect(() => {
     detailApi(id).then((data) => setData(data));
     listApi(setList, 24);
   }, []);
+
+  console.log(String(db.store_address).slice(0,8) + db.store_name)
 
 
   return (

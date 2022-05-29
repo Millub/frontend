@@ -108,8 +108,9 @@ console.log(db)
       // 지도의 크기
       width: "100%",
       height: "300px",
+      display: "fix"
     }}
-    level={2} // 지도의 확대 레벨
+    level={3} // 지도의 확대 레벨
     onCreate={setMap}
   >
     {!state.isLoading && (
