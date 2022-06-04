@@ -21,7 +21,6 @@ const MainList = () => {
 
   const getMoreItem = async () => {
     setIsLoaded(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
     await mainApi(setData, page, loc, name, store);
     setItemLists(itemLists.concat(db));
 
